@@ -28,6 +28,7 @@
     "test": ""
   },
   "dependencies": {
+    "": "file:",
     "express": "^4.21.1"
   }
 }
