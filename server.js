@@ -1,9 +1,13 @@
 import express from "express";
+import routes from './src/routes/postsRoutes.js';
 
+
+// Criação da aplicação Express
 const app = express();
-app.use(express.json());
+routes(app);
 
 
+// Dados de exemplo para os posts
 const posts = [
     {
         id: 1,
@@ -37,20 +41,24 @@ const posts = [
     }
 ];
 
-
-
+// Inicia o servidor na porta 3000
 app.listen(3000, () => {
     console.log("servidor escutando...");
 });
 
-function buscarPostPorID(id){
-    return posts.findIndex((post) => {
-        return post.id === Number(id);
-    })
-}
 
 
-app.get("/posts/:id", (req, res) => {
-    const index = buscarPostPorID(req.params.id)
-    res.status(200).json(posts[index]);
-})
+
+
+// Código comentado para buscar um post por ID (não utilizado no momento)
+// function buscarPostPorID(id){
+//     return posts.findIndex((post) => {
+//         return post.id === Number(id); // Procura o post com o id fornecido
+//     })
+// }
+
+// Rota para obter um post específico por ID (não está sendo usada, pois está comentada)
+// app.get("/posts/:id", (req, res) => {
+//     const index = buscarPostPorID(req.params.id); // Busca o post pelo ID
+//     res.status(200).json(posts[index]); // Retorna o post encontrado com status 200
+// })
