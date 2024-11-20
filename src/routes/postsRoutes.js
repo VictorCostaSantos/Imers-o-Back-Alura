@@ -1,11 +1,10 @@
 import express from "express";
-import { listarPosts } from "../controllers/postController.js";
+import { listarPosts } from "../controllers/postsController.js";
 
- const routes = (app) => {
-  app.use(express.json()); // Permite o uso de JSON nas requisições
-
-  // Rota para obter todos os posts
-  app.get("/posts",listarPosts);
-};
+const routes = (app) => {
+    app.use(express.json());
+    
+    app.get("/posts", listarPosts);
+}
 
 export default routes;
