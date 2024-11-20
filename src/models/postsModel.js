@@ -10,3 +10,10 @@ export async function getTodosPosts(){
 
     return colecao.find().toArray(); // Retorna os posts como um array
 }
+
+export async function criarPost(novoPost){
+    const db = conexao.db("Imersão-instabytes"); // Acessa o banco de dados "Imersão-instabytes"
+    const colecao = db.collection("posts"); // Acessa a coleção "posts"
+
+    return colecao.insertOne(novoPost) // Retorna os posts como um array
+}
