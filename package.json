@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "": "file:",
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "mongodb": "^6.10.0",
     "multer": "^1.4.5-lts.1"
