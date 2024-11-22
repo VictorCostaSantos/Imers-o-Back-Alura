@@ -6,7 +6,7 @@ import { atualizarNovoPost, listarPosts, postarNovoPost, uploadImagem } from "..
 
 
 const corsOptions = {
-  origin: "https://localhost:8000",
+  origin: "http://localhost:8000",
   optionsSuccessStatus: 200 
 }
 
@@ -22,9 +22,9 @@ const storage = multer.diskStorage({
 const upload = multer({ dest: "./uploads" , storage})
 
  const routes = (app) => {
-  app.use(express.json()); // Permite o uso de JSON nas requisições
-
   app.use(cors(corsOptions)); //
+
+  app.use(express.json()); // Permite o uso de JSON nas requisições
 
   // Rota para obter todos os posts
   app.get("/posts",listarPosts);
