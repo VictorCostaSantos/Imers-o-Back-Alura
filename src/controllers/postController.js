@@ -11,6 +11,7 @@ export async function listarPosts(req, res) {
 
 
 export async function postarNovoPost(req, res){
+  
   const novoPost = req.body;
   try {
     const postCriado = await criarPost(novoPost);
@@ -23,7 +24,11 @@ export async function postarNovoPost(req, res){
 }
 
 export async function uploadImagem(req, res){
-  const novoPost = req.body;
+    const novoPost = {
+    descricao: "",
+    imgUrl: req.file.originalname,
+    alt: ""
+};
   try {
     const postCriado = await criarPost(novoPost);
     const imagemAtualizada = `uploads/${postCriado.insertedId}.png`
